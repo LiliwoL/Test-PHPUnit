@@ -1,10 +1,5 @@
 <?php
 
-include('vendor/autoload.php');
-
-use PHPUnit\Framework\TestCase;
-
-
 function verifPassword($mdp): bool
 {
     $points_total = 10;
@@ -22,14 +17,4 @@ function verifPassword($mdp): bool
 
     $resultat = $points_long * $points_comp;
     return ($points_total == $resultat);
-}
-
-
-
-
-class PasswordTest extends TestCase
-{
-    public function testVerifPassword()
-    {
-    }    
 }
