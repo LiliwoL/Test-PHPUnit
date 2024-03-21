@@ -1,10 +1,9 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use PHPUnit\Framework\Attribute\CoversClass;
 
 // Inclusion du fichier des fonctions à tester
-include(__DIR__ . '/../codeATester/Calculator.php');
+include(__DIR__ . '/../src/Calculator.php');
 
 /**
  * Test de la classe Calculator

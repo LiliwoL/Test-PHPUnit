@@ -2,3 +2,7 @@
 .vscode
 vendor/
 .idea/
+coverage/
+
+phpunit.xml
+.phpunit.cache/

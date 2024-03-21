@@ -6,7 +6,7 @@ include( __DIR__ . '/../vendor/autoload.php');
 use PHPUnit\Framework\TestCase;
 
 // Inclusion du fichier des fonctions à tester
-include(__DIR__ . '/../codeATester/functions.php');
+include(__DIR__ . '/../src/functions.php');
 
 
 class PasswordTest extends TestCase
