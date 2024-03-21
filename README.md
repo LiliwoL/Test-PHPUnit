@@ -3,11 +3,13 @@
 [toc]
 <!-- TOC -->
 * [PHP Unit - Les tests unitaires](#php-unit---les-tests-unitaires)
+* [Objectifs](#objectifs)
 * [Pré-requis](#pré-requis)
 * [Clone du projet](#clone-du-projet)
   * [Installation de PHPUnit](#installation-de-phpunit)
   * [Installation des dépendances](#installation-des-dépendances)
-* [Lancer les tests](#lancer-les-tests)
+* [Démonstration : Lancer les tests](#démonstration--lancer-les-tests)
+  * [Explications](#explications)
 * [Exercice 1](#exercice-1)
   * [Créer une classe `Calculator`](#créer-une-classe-calculator)
   * [Créer les tests](#créer-les-tests)
@@ -18,7 +20,11 @@
   * [Créer une classe `Person`](#créer-une-classe-person)
   * [Créer les tests](#créer-les-tests-1)
   * [Exemple de test](#exemple-de-test-1)
-* [](#-1)
+* [Exercice 3 - Définition du taux de couverture de code](#exercice-3---définition-du-taux-de-couverture-de-code)
+  * [Configuration de PHPUnit](#configuration-de-phpunit)
+  * [Dépendances pour le code coverage](#dépendances-pour-le-code-coverage)
+  * [Ajout des annotations dans nos tests](#ajout-des-annotations-dans-nos-tests)
+  * [Lancer les tests avec le code coverage](#lancer-les-tests-avec-le-code-coverage)
 <!-- TOC -->
 
 v0.1
