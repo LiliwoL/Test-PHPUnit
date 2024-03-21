@@ -34,7 +34,8 @@ Dans votre WSL, vous devez avoir installé PHP, git et Composer.
 # Clone du projet
 
 ```bash
-git clone 
+git clone git@github.com:LiliwoL/Test-PHPUnit.git
+cd Test-PHPUnit
 ```
 
 > Vous devrez vous placer à la racine du projet.
@@ -50,12 +51,19 @@ composer require --dev phpunit/phpunit
 ## Installation des dépendances
 
 ```bash
-composer install
+composer update
 ```
+
+> Il peut être nécessaire d'ajouter les dépendances nécessaires à votre projet.
+```bash
+sudo apt install php-mbstring
+``` 
 
 ---
 
-# Lancer les tests
+# Démonstration : Lancer les tests
+
+Ouvrez à la fois le fichier `src/functions.php` et le fichier `tests/PasswordTest.php`.
 
 ```bash
 ./vendor/bin/phpunit --color --testdox tests/
@@ -68,11 +76,22 @@ Les paramètres `--color` et `--testdox` sont optionnels.
 
 ---
 
+## Explications
+
+Dans le fichier `src/functions.php`, vous trouverez une fonction `passwordIsValid`.
+Dans le fichier `tests/PasswordTest.php`, vous trouverez les tests unitaires correspondants.
+
+> Comment se nomme la classe dans le fichier `PasswordTest.php` ?
+> De quelle classe hérite cette classe ?
+> Comment se nomme la méthode de test dans la classe `PasswordTest` ?
+
+---
+
 # Exercice 1
 
 ## Créer une classe `Calculator`
 
-Créer une classe `Calculator` dans le fichier `codeATester/Calculator.php`.
+Créer une classe `Calculator` dans le fichier `src/Calculator.php`.
 
 Cette classe doit comprendre les méthodes suivantes :
 - addition
@@ -85,6 +104,10 @@ Cette classe doit comprendre les méthodes suivantes :
 ## Créer les tests
 
 Créer les tests unitaires pour la classe `Calculator` dans le fichier `tests/CalculatorTest.php`.
+
+Vous devez créer un test pour chaque méthode de la classe `Calculator`.
+- testAddition, testSoustraction, testDivision, testMultiplication
+
 
 ## Exemple de test
 
@@ -151,16 +174,19 @@ public function testGetFullName()
 
 ---
 
-# Exercice 3
+# Exercice 3 - Définition du taux de couverture de code
 
-Définition du taux de couverture de code.
+## Configuration de PHPUnit
 
-On va générer la configuration avec
+On va générer la configuration de PHPUnit avec la commande :
 
 ```bash
 ./vendor/bin/phpunit --generate-configuration
 ```
 
+À chacune des questions, vous pouvez répondre en laissant les valeurs par défaut.
+
+Le fichier généré va ressembler à ceci:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit backupGlobals="false"
@@ -189,3 +215,48 @@ On va générer la configuration avec
 
 ---
 
+## Dépendances pour le code coverage
+
+Pour effectuer un code-coverage, il faut installer les dépendances nécessaires.
+Au choix, Xdebug, PHPDBG ou PCOV.
+
+```bash
+sudo apt install php-pcov
+```
+
+---
+
+## Ajout des annotations dans nos tests
+
+Pour générer un rapport de code coverage, il faut ajouter des **annotations** dans nos tests.
+
+```php
+/**
+ * @covers Calculator::addition
+ */
+public function testAddition()
+{
+    ...
+}
+``` 
+
+Le fait d'ajouter cette **annotation** permet de dire à PHPUnit que le test `testAddition` couvre la méthode `addition` de la classe `Calculator`.
+
+> Ajouter les annotations dans les méthodes de tests de la classe `CalculatorTest` et de la classe `PersonTest`.
+
+---
+
+## Lancer les tests avec le code coverage
+
+Les tests du dossier **tests** vont être lancés, et un rapport sera généré dans le dossier **coverage**.
+
+```bash
+./vendor/bin/phpunit --color --testdox --coverage-html coverage tests/
+```
+
+Rendez-vous dans le dossier **coverage** pour consulter le rapport.
+
+![](readme_docs/870d5995.png)
+
+
+> Vous devez avoir un taux de couverture de 100% pour les classes `Calculator` et `Person`.
