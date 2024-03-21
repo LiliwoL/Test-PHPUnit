@@ -1,6 +1,25 @@
 # PHP Unit - Les tests unitaires
 
 [toc]
+<!-- TOC -->
+* [PHP Unit - Les tests unitaires](#php-unit---les-tests-unitaires)
+* [Pré-requis](#pré-requis)
+* [Clone du projet](#clone-du-projet)
+  * [Installation de PHPUnit](#installation-de-phpunit)
+  * [Installation des dépendances](#installation-des-dépendances)
+* [Lancer les tests](#lancer-les-tests)
+* [Exercice 1](#exercice-1)
+  * [Créer une classe `Calculator`](#créer-une-classe-calculator)
+  * [Créer les tests](#créer-les-tests)
+  * [Exemple de test](#exemple-de-test)
+  * [Exécuter les tests](#exécuter-les-tests)
+  * [](#)
+* [Exercice 2](#exercice-2)
+  * [Créer une classe `Person`](#créer-une-classe-person)
+  * [Créer les tests](#créer-les-tests-1)
+  * [Exemple de test](#exemple-de-test-1)
+* [](#-1)
+<!-- TOC -->
 
 v0.1
 
@@ -20,6 +39,7 @@ git clone
 
 > Vous devrez vous placer à la racine du projet.
 
+---
 
 ## Installation de PHPUnit
 
@@ -27,17 +47,24 @@ git clone
 composer require --dev phpunit/phpunit
 ```
 
-# Installation des dépendances
+## Installation des dépendances
 
 ```bash
 composer install
 ```
 
+---
+
 # Lancer les tests
 
 ```bash
-./vendor/bin/phpunit --color tests/
+./vendor/bin/phpunit --color --testdox tests/
 ```
+
+Les paramètres `--color` et `--testdox` sont optionnels.
+
+> --color: permet d'afficher les résultats des tests en couleur
+> --testdox: permet d'afficher les résultats des tests sous forme de liste
 
 ---
 
@@ -45,13 +72,15 @@ composer install
 
 ## Créer une classe `Calculator`
 
-Créer une classe `Calculator` dans le fichier `src/Calculator.php`.
+Créer une classe `Calculator` dans le fichier `codeATester/Calculator.php`.
 
 Cette classe doit comprendre les méthodes suivantes :
 - addition
 - soustraction
 - division
 - multiplication
+
+---
 
 ## Créer les tests
 
@@ -67,6 +96,16 @@ public function testAddition()
     $this->assertEquals(3, $result);
 }
 ```
+
+---
+
+## Exécuter les tests
+
+```bash
+./vendor/bin/phpunit --color --testdox tests/CalculatorTest.php
+```
+
+> Tous les tests doivent passer.
    
 ---
 
@@ -88,10 +127,6 @@ Cette classe doit comprendre les propriétés suivantes :
 - téléphone
 - email
 - date de naissance
-- date de création
-- date de modification
-- date de suppression
-- date de dernière connexion
 
 Cette classe doit contenir les getters et les setters correspondants.
 
@@ -113,3 +148,44 @@ public function testGetFullName()
     $this->assertEquals('John Doe', $result);
 }
 ```
+
+---
+
+# Exercice 3
+
+Définition du taux de couverture de code.
+
+On va générer la configuration avec
+
+```bash
+./vendor/bin/phpunit --generate-configuration
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit backupGlobals="false"
+         backupStaticAttributes="false"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false"
+         syntaxCheck="false"
+         verbose="true">
+    <testsuites>
+        <testsuite name="Application Test Suite">
+            <directory>tests/</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">src/</directory>
+        </whitelist>
+    </filter>
+</phpunit>
+```
+
+---
+
