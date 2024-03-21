@@ -8,8 +8,9 @@ v0.1
 
 # Pré-requis
 
-Dans votre WSL, vous devez avoir installé PHP et Composer.
+Dans votre WSL, vous devez avoir installé PHP, git et Composer.
 
+---
 
 # Clone du projet
 
@@ -31,3 +32,30 @@ composer require --dev phpunit/phpunit
 ```bash
 composer install
 ```
+
+# Lancer les tests
+
+```bash
+./vendor/bin/phpunit --color tests/
+```
+
+---
+
+# Exercice 1
+
+## Créer une classe `Calculator`
+
+Créer une classe `Calculator` dans le fichier `src/Calculator.php`.
+
+Cette classe doit comprendre les méthodes suivantes :
+- addition
+- soustraction
+- division
+- multiplication
+
+## Créer les tests
+
+Créer les tests unitaires pour la classe `Calculator` dans le fichier `tests/CalculatorTest.php`.
+
+
+   
