@@ -1,10 +1,33 @@
+# PHP Unit - Les tests unitaires
 
+[toc]
+
+v0.1
+
+---
+
+# Pré-requis
+
+Dans votre WSL, vous devez avoir installé PHP et Composer.
+
+
+# Clone du projet
+
+```bash
+git clone 
+```
 
 > Vous devrez vous placer à la racine du projet.
 
 
-Lancement des tests dans la classe PasswordTest
-> On utilise le paramètre **testdox** pour un affichage plus agréable
+## Installation de PHPUnit
+
 ```bash
-vendor/bin/phpunit --testdox tests/PasswordTest.php
+composer require --dev phpunit/phpunit
+```
+
+# Installation des dépendances
+
+```bash
+composer install
 ```
