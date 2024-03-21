@@ -25,6 +25,14 @@ v0.1
 
 ---
 
+# Objectifs
+
+- Comprendre l'intérêt des tests unitaires.
+- Créer des tests unitaires avec PHPUnit.
+- Assurer la qualité du code en créant des tests unitaires.
+
+---
+
 # Pré-requis
 
 Dans votre WSL, vous devez avoir installé PHP, git et Composer.
